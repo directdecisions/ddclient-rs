@@ -479,7 +479,7 @@ impl ClientBuilder {
             None => DEFAULT_BASE_URL.to_string(),
         };
 
-        let client = self.reqwest_client.unwrap_or_else(reqwest::Client::new);
+        let client = self.reqwest_client.unwrap_or_default();
 
         Client {
             token: self.token,

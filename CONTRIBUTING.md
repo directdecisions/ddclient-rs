@@ -18,12 +18,11 @@ Releases are made from the `master` branch and should follow these steps:
 
 1. **Update Version Number**: Update the version number in `Cargo.toml` to reflect the new version of the client.
 
-2. **Create a Pull Request**: Make a pull request with the version change and any other relevant updates (like `CHANGELOG.md` or documentation).
+2. **Create a Pull Request**: Make a pull request with the version change and any other relevant updates.
 
 3. **Merge and Release**:
     - Once the pull request has been reviewed and merged, go to the [releases page](https://github.com/directdecisions/client-rust/releases) of the repository.
     - Click "Draft a new release".
     - Set the "Tag version" and "Release title" to the new version of the Rust client, prefixed with `v`, e.g., `v1.2.0`.
-    - Write a summary of changes in the release notes.
     - Publish the release.
 

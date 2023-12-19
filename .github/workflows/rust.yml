@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Run Clippy
-        if: matrix.rust == 'stable'
+        if: matrix.rust == 'stable' && matrix.os == 'ubuntu-latest'
         uses: actions-rs/clippy-check@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
