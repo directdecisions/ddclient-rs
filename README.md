@@ -12,7 +12,7 @@ The async client uses `tokio` and `reqwest`  as dependencies. To use it you woul
 
 ```toml
 [dependencies]
-ddclient = "0.1.1"
+ddclient = "0.1.0"
 tokio = { version = "1", features = ["full"] }
 reqwest = { version = "0.11", features = ["json"] }
 ```
