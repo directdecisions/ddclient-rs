@@ -1,5 +1,8 @@
 # Direct Decisions API v1 Rust client
 
+[![Rust](https://github.com/directdecisions/ddclient-rs/actions/workflows/rust.yml/badge.svg)](https://github.com/directdecisions/ddclient-rs/actions/workflows/rust.yml)
+
+
 A client library for accessing the [Direct Decisions](https://directdecisions.com) v1 API.
 
 You can view Direct Decisions API v1 docs here: [https://api.directdecisions.com/v1](https://api.directdecisions.com/v1)
