@@ -467,17 +467,17 @@ impl ClientBuilder {
     ///     .build();
     /// ```
     pub fn build(self) -> Client {
-        let api_url = match self.api_url {
+        let mut api_url = match self.api_url {
             Some(url) => {
                 let _ = reqwest::Url::parse(&url).expect("Invalid API URL");
-                if url.ends_with('/') {
-                    url
-                } else {
-                    format!("{}/", url)
-                }
+                url
             }
             None => DEFAULT_BASE_URL.to_string(),
         };
+
+        if !api_url.ends_with('/') {
+            api_url.push('/');
+        }
 
         let client = self.reqwest_client.unwrap_or_default();
 

@@ -1,6 +1,6 @@
 [package]
 name = "ddclient-rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A Rust client library for the Direct Decisions API."
 license = "BSD-3-Clause"
