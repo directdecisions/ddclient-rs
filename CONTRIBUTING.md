@@ -21,7 +21,7 @@ Releases are made from the `master` branch and should follow these steps:
 2. **Create a Pull Request**: Make a pull request with the version change and any other relevant updates.
 
 3. **Merge and Release**:
-    - Once the pull request has been reviewed and merged, go to the [releases page](https://github.com/directdecisions/client-rust/releases) of the repository.
+    - Once the pull request has been reviewed and merged, go to the [releases page](https://github.com/directdecisions/ddclient-rs/releases) of the repository.
     - Click "Draft a new release".
     - Set the "Tag version" and "Release title" to the new version of the Rust client, prefixed with `v`, e.g., `v1.2.0`.
     - Publish the release.
