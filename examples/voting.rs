@@ -3,7 +3,11 @@ use std::collections::HashMap;
 
 #[tokio::main]
 async fn main() -> Result<(), ApiError> {
-    let client = Client::new("my-api-key".to_string());
+    let client = Client::builder(
+        "xapp-1-615817b2fc2700f23eea-c507dt3co5dknpst59c0beqkgm4n26nrr6akqjum".to_string(),
+    )
+    .api_url("https://api-demo.directdecisions.com/".to_string())
+    .build();
 
     let v = client
         .create_voting(vec![
