@@ -50,7 +50,7 @@ async fn main() -> Result<(), ApiError> {
     let choices = client.set_choice(&v.id, "Galileo", 0).await?;
     println!("Appended Galileo to the list of choices: {:?}", choices);
 
-    let results = client.get_voting_results(&v.id).await?;
+    let results = client.get_voting_results_duels(&v.id).await?;
     println!("Voting results: {:?}", results);
 
     client.delete_voting(&v.id).await.unwrap();

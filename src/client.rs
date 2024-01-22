@@ -377,10 +377,29 @@ impl Client {
 
     /// Retrieves the results of a specific voting.
     /// The results are returned as a list of choices with their wins, percentage, and index.
+    /// It does not include the duels information.
     pub async fn get_voting_results(&self, voting_id: &str) -> Result<VotingResults, ApiError> {
         let mut uri = "v1/votings/".to_string();
         url_escape::encode_path_to_string(voting_id, &mut uri);
         uri.push_str("/results");
+
+        let response = self
+            .request::<VotingResults>(Method::GET, &uri, None)
+            .await?;
+
+        handle_api_response(response).await
+    }
+
+    /// Retrieves the results of a specific voting.
+    /// The results are returned as a list of choices with their wins, percentage, and index.
+    /// The results also include the duels information between choices.
+    pub async fn get_voting_results_duels(
+        &self,
+        voting_id: &str,
+    ) -> Result<VotingResults, ApiError> {
+        let mut uri = "v1/votings/".to_string();
+        url_escape::encode_path_to_string(voting_id, &mut uri);
+        uri.push_str("/results/duels");
 
         let response = self
             .request::<VotingResults>(Method::GET, &uri, None)
