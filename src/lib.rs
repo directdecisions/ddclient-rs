@@ -77,10 +77,27 @@ const DEFAULT_BASE_URL: &str = "https://api.directdecisions.com";
 ///
 /// This struct contains the overall results of a voting, including details on whether the
 /// voting resulted in a tie and the individual results for each choice.
+/// It can also contain additional information about how choices compare to each other in duels
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
 pub struct VotingResults {
-    pub results: Vec<VotingResult>,
     pub tie: bool,
+    pub results: Vec<VotingResult>,
+    pub duels: Option<Vec<Duels>>,
+}
+
+/// Represents the duel information for 2 choices, as part of the voting results.
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
+pub struct Duels {
+    pub left: ChoiceStrength,
+    pub right: ChoiceStrength,
+}
+
+/// Represents the strength of a choice compared to another choice in a duel.
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
+pub struct ChoiceStrength {
+    pub index: isize,
+    pub choice: String,
+    pub strength: isize,
 }
 
 /// Represents the single result for a specific choice.

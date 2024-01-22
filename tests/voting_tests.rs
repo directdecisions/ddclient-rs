@@ -257,6 +257,85 @@ async fn get_voting_results_test() {
             },
         ],
         tie: true,
+        duels: None,
+    };
+
+    let mock = request_mock(
+        &server,
+        GET,
+        "/v1/votings/40f80454800b2bd7c172/results".to_string(),
+        200,
+        None,
+        json!(voting_results),
+    );
+
+    let got_results = client
+        .get_voting_results("40f80454800b2bd7c172")
+        .await
+        .unwrap();
+
+    assert_eq!(got_results, voting_results);
+    mock.assert();
+}
+
+#[tokio::test]
+async fn get_voting_results_duels_test() {
+    let (server, client) = prepare_client_server();
+
+    let voting_results = ddclient_rs::VotingResults {
+        results: vec![
+            VotingResult {
+                choice: "Schopenhauer".to_string(),
+                index: 0,
+                wins: 1,
+                percentage: 50.0,
+            },
+            VotingResult {
+                choice: "Spinoza".to_string(),
+                index: 1,
+                wins: 1,
+                percentage: 50.0,
+            },
+            VotingResult {
+                choice: "Kant".to_string(),
+                index: 2,
+                wins: 1,
+                percentage: 50.0,
+            },
+            VotingResult {
+                choice: "Nietzsche".to_string(),
+                index: 3,
+                wins: 1,
+                percentage: 50.0,
+            },
+        ],
+        tie: true,
+        duels: Some(vec![
+            ddclient_rs::Duels {
+                left: ddclient_rs::ChoiceStrength {
+                    index: 0,
+                    choice: "Schopenhauer".to_string(),
+                    strength: 1,
+                },
+                right: ddclient_rs::ChoiceStrength {
+                    index: 1,
+                    choice: "Spinoza".to_string(),
+                    strength: 1,
+                },
+            },
+            ddclient_rs::Duels {
+                left: ddclient_rs::ChoiceStrength {
+                    index: 2,
+                    choice: "Kant".to_string(),
+                    strength: 1,
+                },
+                right: ddclient_rs::ChoiceStrength {
+                    index: 3,
+                    choice: "Nietzsche".to_string(),
+                    strength: 1,
+                },
+            },
+        ]),
     };
 
     let mock = request_mock(
