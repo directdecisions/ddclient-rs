@@ -95,9 +95,9 @@ pub struct Duels {
 /// Represents the strength of a choice compared to another choice in a duel.
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
 pub struct ChoiceStrength {
-    pub index: i32,
+    pub index: isize,
     pub choice: String,
-    pub strength: i32,
+    pub strength: isize,
 }
 
 /// Represents the single result for a specific choice.
