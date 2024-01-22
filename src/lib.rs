@@ -107,6 +107,8 @@ pub struct VotingResult {
     pub index: i32,
     pub wins: i32,
     pub percentage: f32,
+    pub strength: usize,
+    pub advantage: usize,
 }
 
 /// Represents a voting.
