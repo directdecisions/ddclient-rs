@@ -4,8 +4,8 @@
 
 
 A client library for accessing the [Direct Decisions](https://directdecisions.com) v1 API.
-
-You can view Direct Decisions API v1 docs here: [https://api.directdecisions.com/v1](https://api.directdecisions.com/v1)
+This API enables implementation of preferential votings, backed by [Schulze method](https://en.wikipedia.org/wiki/Schulze_method).
+You can view Direct Decisions API v1 docs [here](https://api.directdecisions.com/v1).
 
 This is an asynchronous Rust client using `reqwest`. The plan in the future is to also provide a blocking(sync) version and a support for other HTTP clients as well.
 
